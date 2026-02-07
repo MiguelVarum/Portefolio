@@ -3,430 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Miguel Varum - Software Developer</title>
+  <meta name="description" content="Portfólio de Miguel Varum - Desenvolvedor de Software especializado em Flutter, Kotlin, Python e desenvolvimento web.">
+  <title>Miguel Varum - Desenvolvedor de Software</title>
+  
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1e40af;
-      --secondary: #8b5cf6;
-      --accent: #06b6d4;
-      --dark: #0f172a;
-      --dark-light: #1e293b;
-      --gray: #64748b;
-      --light: #f8fafc;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--dark);
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* Navbar Moderna */
-    .navbar {
-      background: rgba(15, 23, 42, 0.95) !important;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 1.2rem 0;
-      transition: all 0.3s ease;
-    }
-
-    .navbar.scrolled {
-      padding: 0.8rem 0;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .navbar-brand {
-      font-weight: 800;
-      font-size: 1.5rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .nav-link {
-      color: rgba(255, 255, 255, 0.8) !important;
-      font-weight: 500;
-      margin: 0 0.5rem;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 80%;
-    }
-
-    .nav-link:hover {
-      color: #fff !important;
-    }
-
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
-      top: -200px;
-      right: -200px;
-      border-radius: 50%;
-      animation: pulse 8s ease-in-out infinite;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
-      bottom: -100px;
-      left: -100px;
-      border-radius: 50%;
-      animation: pulse 10s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.1); opacity: 0.5; }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h1 {
-      font-size: 4rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeInUp 1s ease;
-    }
-
-    .hero .subtitle {
-      font-size: 1.5rem;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      animation: fadeInUp 1s ease 0.2s backwards;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.7);
-      max-width: 600px;
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
-      animation: fadeInUp 1s ease 0.4s backwards;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .btn-hero {
-      padding: 1rem 2.5rem;
-      font-weight: 600;
-      font-size: 1.1rem;
-      border-radius: 50px;
-      margin: 0.5rem;
-      transition: all 0.3s ease;
-      border: none;
-      position: relative;
-      overflow: hidden;
-      animation: fadeInUp 1s ease 0.6s backwards;
-    }
-
-    .btn-primary-custom {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-    }
-
-    .btn-primary-custom:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
-    }
-
-    .btn-outline-custom {
-      background: transparent;
-      color: white;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .btn-outline-custom:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: white;
-      transform: translateY(-3px);
-    }
-
-    /* Section Styling */
-    section {
-      padding: 6rem 0;
-      position: relative;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      text-align: center;
-      background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.8));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .section-subtitle {
-      color: var(--gray);
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 4rem;
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    /* Sobre Section */
-    #sobre {
-      background: var(--dark-light);
-    }
-
-    .about-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 3rem;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
-
-    .about-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary);
-      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
-    }
-
-    /* Competências */
-    .skill-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .skill-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .skill-card:hover::before {
-      opacity: 0.1;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--primary);
-      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
-    }
-
-    .skill-icon {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-    }
-
-    .skill-card h5 {
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-      font-size: 1.3rem;
-    }
-
-    .skill-card p {
-      color: var(--gray);
-      margin: 0;
-    }
-
-    /* Projetos */
-    #projetos {
-      background: var(--dark);
-    }
-
-    .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      height: 100%;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--primary);
-      box-shadow: 0 30px 60px rgba(37, 99, 235, 0.3);
-    }
-
-    .project-card .card-body {
-      padding: 2.5rem;
-    }
-
-    .project-card h5 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #fff;
-    }
-
-    .project-card p {
-      color: var(--gray);
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-
-    .btn-project {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-      border: none;
-      padding: 0.8rem 2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .btn-project:hover {
-      transform: translateX(5px);
-      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
-    }
-
-    /* Contacto */
-    #contacto {
-      background: var(--dark-light);
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 3rem;
-    }
-
-    .contact-item {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 1.5rem 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      color: white;
-    }
-
-    .contact-item:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary);
-      box-shadow: 0 15px 35px rgba(37, 99, 235, 0.3);
-      color: white;
-    }
-
-    .contact-item i {
-      font-size: 1.8rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--dark);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 2rem 0;
-      text-align: center;
-      color: var(--gray);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .hero .subtitle {
-        font-size: 1.2rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      .contact-links {
-        flex-direction: column;
-        gap: 1rem;
-      }
-    }
-  </style>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
       <a class="navbar-brand" href="#">MV</a>
@@ -435,7 +28,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
           <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
           <li class="nav-item"><a class="nav-link" href="#competencias">Competências</a></li>
           <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
@@ -445,99 +38,167 @@
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="container">
-      <div class="hero-content">
-        <h1>Miguel Varum</h1>
-        <p class="subtitle">Software Developer</p>
-        <p>
-          Recém-formado em Desenvolvimento de Software, apaixonado por criar soluções digitais 
-          inovadoras e eficientes. Pronto para contribuir com projetos tecnológicos de qualidade.
-        </p>
-        <div>
-          <a href="#projetos" class="btn btn-hero btn-primary-custom">Ver Projetos</a>
-          <a href="#contacto" class="btn btn-hero btn-outline-custom">Contactar</a>
+      <div class="row align-items-center">
+        <!-- Texto à esquerda -->
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <h1>Miguel Varum</h1>
+            <p class="subtitle">Desenvolvedor de Software</p>
+            <p>
+              Recém-formado em Desenvolvimento de Software pela ESAN, com paixão por transformar 
+              ideias em soluções digitais funcionais e elegantes. Especializado em desenvolvimento 
+              mobile e web, pronto para enfrentar desafios tecnológicos e contribuir para projetos inovadores.
+            </p>
+            <div>
+              <a href="#projetos" class="btn btn-hero btn-primary-custom">Ver Projetos</a>
+              <a href="#contacto" class="btn btn-hero btn-outline-custom">Contactar</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Carrossel à direita -->
+        <div class="col-lg-6">
+          <div id="projectsCarousel" class="carousel slide projects-carousel" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="2"></button>
+              <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=400&fit=crop" alt="Projeto 1">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Aplicação Mobile</h5>
+                  <p>Flutter & Firebase</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop" alt="Projeto 2">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Dashboard Analytics</h5>
+                  <p>React & TypeScript</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=400&fit=crop" alt="Projeto 3">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Sistema de Gestão</h5>
+                  <p>Python & Django</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=400&fit=crop" alt="Projeto 4">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>API RESTful</h5>
+                  <p>Node.js & Express</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Seguinte</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Sobre Section -->
   <section id="sobre">
     <div class="container">
       <h2 class="section-title">Sobre Mim</h2>
       <p class="section-subtitle">
-        Desenvolvedor focado em criar experiências digitais excepcionais
+        Um desenvolvedor apaixonado por tecnologia e inovação
       </p>
       <div class="about-card">
         <p style="font-size: 1.1rem; line-height: 2; color: rgba(255, 255, 255, 0.8);">
-          Formado pela Escola Superior Aveiro-Norte (ESAN), trago uma combinação de conhecimento técnico 
-          sólido e paixão por tecnologia. Durante a minha formação, desenvolvi competências práticas através 
-          de projetos académicos e pessoais, sempre focado em escrever código limpo e criar soluções eficientes. 
-          Estou entusiasmado para aplicar o meu conhecimento em ambientes profissionais desafiadores e contribuir 
-          para o desenvolvimento de produtos tecnológicos inovadores.
+          Como recém-formado pela Escola Superior Aveiro-Norte (ESAN), combinei conhecimento técnico 
+          sólido com uma paixão genuína pela tecnologia. Durante a minha formação académica, desenvolvi 
+          uma base robusta em diversas linguagens de programação e frameworks modernos, sempre com foco 
+          em escrever código limpo, eficiente e escalável.
+          <br><br>
+          A minha abordagem ao desenvolvimento de software é orientada pela resolução de problemas e pela 
+          criação de experiências de utilizador intuitivas. Acredito que a tecnologia deve servir as pessoas 
+          de forma simples e eficaz. Estou constantemente a aprender e a explorar novas tecnologias, 
+          mantendo-me atualizado com as tendências da indústria.
+          <br><br>
+          Procuro integrar equipas dinâmicas onde possa contribuir com as minhas competências técnicas, 
+          aprender com profissionais experientes e participar no desenvolvimento de soluções que fazem 
+          a diferença.
         </p>
       </div>
     </div>
   </section>
 
+  <!-- Competências Section -->
   <section id="competencias">
     <div class="container">
       <h2 class="section-title">Competências Técnicas</h2>
       <p class="section-subtitle">
-        Tecnologias e ferramentas que domino através de projetos práticos
+        Tecnologias e ferramentas que domino através de projetos práticos e formação contínua
       </p>
       <div class="row g-4">
         <div class="col-md-4">
           <div class="skill-card">
             <i class="fas fa-mobile skill-icon"></i>
             <h5>Flutter</h5>
-            <p>Desenvolvimento multiplataforma para Android e iOS</p>
+            <p>Desenvolvimento multiplataforma para Android e iOS com UI moderna e performance nativa</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="skill-card">
             <i class="fas fa-mobile-alt skill-icon"></i>
             <h5>Kotlin</h5>
-            <p>Desenvolvimento nativo de aplicações Android</p>
+            <p>Desenvolvimento nativo de aplicações Android com código conciso e seguro</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="skill-card">
             <i class="fab fa-python skill-icon"></i>
             <h5>Python</h5>
-            <p>Programação, automação e desenvolvimento</p>
+            <p>Programação versátil para automação, backend e análise de dados</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="skill-card">
-            <i class="fab fa-js-square skill-icon"></i>
-            <h5>HTML</h5>
-            <p>Desenvolvimento web com HTML, CSS e JavaScript</p>
+            <i class="fab fa-html5 skill-icon"></i>
+            <h5>Web Development</h5>
+            <p>HTML, CSS e JavaScript para criar interfaces web responsivas e interativas</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="skill-card">
             <i class="fab fa-git-alt skill-icon"></i>
             <h5>Git & GitHub</h5>
-            <p>Colaboração em projetos</p>
+            <p>Controlo de versões e colaboração eficiente em projetos de equipa</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="skill-card">
             <i class="fas fa-code skill-icon"></i>
-            <h5>Desenvolvimento</h5>
-            <p>Boas práticas, código limpo e resolução de problemas</p>
+            <h5>Boas Práticas</h5>
+            <p>Código limpo, arquitetura sólida e resolução eficaz de problemas</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Projetos Section -->
   <section id="projetos">
     <div class="container">
       <h2 class="section-title">Projetos em Destaque</h2>
       <p class="section-subtitle">
-        Alguns dos trabalhos que demonstram as minhas capacidades técnicas
+        Alguns dos trabalhos que demonstram as minhas capacidades técnicas e criatividade
       </p>
       <div class="row g-4">
         <div class="col-md-6">
@@ -545,8 +206,8 @@
             <div class="card-body">
               <h5>Sistema de Gestão de Tarefas</h5>
               <p>
-                Aplicação web desenvolvida com React para gestão eficiente de tarefas e projetos, 
-                com interface intuitiva e responsiva.
+                Aplicação web desenvolvida com tecnologias modernas para gestão eficiente de tarefas 
+                e projetos. Inclui interface intuitiva, sistema de autenticação e sincronização em tempo real.
               </p>
               <a href="#" class="btn btn-project">Ver Projeto <i class="fas fa-arrow-right ms-2"></i></a>
             </div>
@@ -555,10 +216,34 @@
         <div class="col-md-6">
           <div class="project-card">
             <div class="card-body">
-              <h5>API REST de Reservas</h5>
+              <h5>API REST para Reservas</h5>
               <p>
-                Sistema backend desenvolvido para gestão de reservas, com autenticação segura 
-                e endpoints otimizados para performance.
+                Sistema backend robusto desenvolvido para gestão de reservas, com autenticação segura 
+                JWT, endpoints RESTful otimizados e documentação completa com Swagger.
+              </p>
+              <a href="#" class="btn btn-project">Ver Projeto <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="project-card">
+            <div class="card-body">
+              <h5>Aplicação Mobile de Produtividade</h5>
+              <p>
+                App multiplataforma desenvolvida em Flutter para aumentar a produtividade diária. 
+                Funcionalidades offline, notificações push e sincronização na cloud.
+              </p>
+              <a href="#" class="btn btn-project">Ver Projeto <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="project-card">
+            <div class="card-body">
+              <h5>Dashboard de Analytics</h5>
+              <p>
+                Painel de controlo interativo para visualização de dados em tempo real. Gráficos dinâmicos, 
+                filtros avançados e exportação de relatórios personalizados.
               </p>
               <a href="#" class="btn btn-project">Ver Projeto <i class="fas fa-arrow-right ms-2"></i></a>
             </div>
@@ -568,11 +253,12 @@
     </div>
   </section>
 
+  <!-- Contacto Section -->
   <section id="contacto">
     <div class="container">
       <h2 class="section-title">Vamos Trabalhar Juntos</h2>
       <p class="section-subtitle">
-        Estou disponível para novas oportunidades e colaborações
+        Disponível para novas oportunidades, colaborações e projetos desafiantes
       </p>
       <div class="contact-links">
         <a href="mailto:miguel15varum@email.com" class="contact-item">
@@ -591,35 +277,17 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; 2025 Miguel Varum. Todos os direitos reservados.</p>
     </div>
   </footer>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    window.addEventListener('scroll', function() {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-  </script>
+  
+  <!-- Custom JS -->
+  <script src="js/script.js"></script>
 </body>
 </html>
